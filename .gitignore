@@ -1,0 +1,7 @@
+media
+images
+.obsidian*
+*.jpg
+*.png
+.DS_Store
+.mobile*
