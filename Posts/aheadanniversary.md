@@ -8,6 +8,7 @@ blog-published: 2025-04-06
 ---
 
 This week I had my **1-year anniversary** at AHEAD Automotive. In this short time we built an entire product from scratch, which is now being used by over 60 car workshops in Germany and soon released for everyone. The product is called [Qira](https://www.linkedin.com/company/qira-ai/), the intelligent assistant for the automotive aftermarket. Qira combines detailed repair information from various data providers and original car manufacturers at a single point of access. With only a simple natural language input field, car mechanics can ask Qira for
+
 - detailed vehicle adjustment data 🚗  
 - lubricants 💧  
 - component locations 📍  
