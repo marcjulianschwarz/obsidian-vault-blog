@@ -3,8 +3,6 @@ blog-skip: true
 blog-archived: true
 ---
 
-# Blog
-
 > [!TIP] Ideas
 > ```dataview
 > list
