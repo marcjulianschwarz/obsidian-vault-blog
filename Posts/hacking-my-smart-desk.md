@@ -5,16 +5,17 @@ blog-tags:
   - EN
   - Python
   - SmartHome
-blog-skip: true
+  - Hardware
+  - Raycast
+blog-skip: false
 ---
-
 ## Project Overview
 
 The goal of this project is to control a height-adjustable desk from a Home Assistant button while still preserving the functionality of the manual button controls on the table itself.
 
 ## Prerequisites
 
-These are the exact tools, hardware and software I used. However, you can exchange most components with other similar ones.
+These are the exact tools, hardware, and software I used. However, you can exchange most components with other similar ones.
 
 ### Hardware
 
@@ -26,8 +27,8 @@ These are the exact tools, hardware and software I used. However, you can exchan
 
 ### Tools
 
-- Scissors to cut the cable
-- Cable Insulation Stripping Tool
+- Scissors to cut the cable  
+-  Cable insulation stripping tool
 
 ### Software
 
@@ -36,36 +37,35 @@ These are the exact tools, hardware and software I used. However, you can exchan
 
 ## Safety Warnings
 
-The instructions contain steps that permanently alter parts of the desk. If not followed correctly, they **CAN damage** the desk controller, engine and other parts on or around the table.
-Make sure to remove any items on, around and under the desk before performing the steps.
+The instructions contain steps that permanently alter parts of the desk. If not followed correctly, they **CAN damage** the desk controller, engine, and other parts on or around the table. Make sure to remove any items on, around, and under the desk before performing the steps.
 
-The instructions are relatively safe to follow, as they are only dealing with low-voltage parts of the table. Nontheless, be careful and do NOT make any changes on parts that run high voltages. Always check the components with a multimeter before working on them and plug out all cables.
+The instructions are relatively safe to follow, as they only deal with low-voltage parts of the table. Nonetheless, be careful and do NOT make any changes to parts that run high voltages. Always check the components with a multimeter before working on them and unplug all cables.
 
 ## Step-by-Step Guide
 
 ### Understanding the Desk Controls
 
-The desk controls are made up of three cables. The following figures shows a schematic view on those cables. The colors are only for illustrative purposes and might be different for your specific desk.
+The desk controls are made up of three cables. The following figures show a schematic view of those cables. The colors are only for illustrative purposes and might be different for your specific desk.
 
-The green (left) cable connects the controller with the `Raise` button and the blue (right) one with the `Lower` button. One black cable connects both buttons back to the table to form a closed loop that is only interrupted by the open buttons themselves. Pressing a button closes the respective circuit, letting the desk controller know to start the engine for raising or lowering the table.
+The green (left) cable connects the controller with the `Raise` button, and the blue (right) one connects with the `Lower` button. One black cable connects both buttons back to the table to form a closed loop that is only interrupted by the open buttons themselves. Pressing a button closes the respective circuit, letting the desk controller know to start the engine for raising or lowering the table.
 
-![](/docs/media/desk-diag.png)
+![](/images/desk-diag.jpg)
 
-At this point it is quite straightforward to intercept the button presses by directly connecting the green and blue wires with the orange wire. Therefore creating a closed circuit before the button is even reached. The same connection can be done with the blue cable, lowering the table.
+At this point, it is quite straightforward to intercept the button presses by directly connecting the green and blue wires with the orange wire, thereby creating a closed circuit before the button is even reached. The same connection can be made with the blue cable, lowering the table.
 
 ### Cut the Cable
 
-To get access to the individual cables the cable running from the button controls to the desk has to be cut and the insulation around them and the individual smaller cables has to be removed for about 1-2cm.
+To get access to the individual cables, the cable running from the button controls to the desk has to be cut, and the insulation around it and the individual smaller cables has to be removed for about 1-2 cm.
 
 #### Automating a Button Click
 
-![](/docs/media/desk-relay-diag.png)
+![](/images/desk-relay-diag.jpg)
 
 #### Controlling the Relays
 
-Relays don't do anything on their own. A microcontroller is needed. For example, you can use the NodeMCU ESP8266 development board. The board has to provide power, ground and two data pins. Each data pin controls one of the relays. Now the circuit is completed and the ESP can be programmed.
+Relays don't do anything on their own. A microcontroller is needed. For example, you can use the NodeMCU ESP8266 development board. The board has to provide power, ground, and two data pins. Each data pin controls one of the relays. Now the circuit is complete, and the ESP can be programmed.
 
-![](/docs/media/desk-controller-diag.png)
+![](/images/desk-controller-diag.jpg)
 
 ### Programming the Controller
 
@@ -81,13 +81,13 @@ Open [esp8266.ino](/esp8266.ino) in the Arduino IDE and set all configuration va
 
 #### 2. Add MQTT Integration
 
-- The MQTT integration should appear on `Settings > Devices & services`
-- Add the integration
-- Here you can try publishing packets to the `desk` topic. Set your payload to `down` or `up`.
+- The MQTT integration should appear under `Settings > Devices & services`
+-  Add the integration
+-  Here you can try publishing packets to the `desk` topic. Set your payload to `down` or `up`.
 
 #### 3. Add Switch in Home Assistant Configuration
 
-Use the Text Editor add-on to edit the `configuration.yaml` file of you Home Assistant instance. Add the following entry to the file.
+Use the Text Editor add-on to edit the `configuration.yaml` file of your Home Assistant instance. Add the following entry to the file.
 
 ```yaml
 mqtt:
@@ -99,13 +99,13 @@ mqtt:
       payload_off: "down"
 ```
 
-After restarting Home Assistant, this will add a new switch device which sends `up` and `down` payloads to the `desk` MQTT topic.
+After restarting Home Assistant, this will add a new switch device that sends `up` and `down` payloads to the `desk` MQTT topic.
 
 ## Optional Raycast Integration
 
 The repository includes [two python files](https://github.com/marcjulianschwarz/ha-desk-automation/blob/main/raycast-scripts) that can be included in a [script commands directory](https://github.com/raycast/script-commands) for [Raycast](https://www.raycast.com/). They will add the commands `⬆️ Raise Desk` and `⬇️ Lower Desk`.
 
-![Screenshot of Raycast Script Commands in Raycast Search](/docs/media/raycast.png)
+![Screenshot of Raycast Script Commands in Raycast Search](/images/raycast.jpg)
 
 ### Install
 
@@ -115,5 +115,4 @@ To use the scripts, install the MQTT python client.
 pip install paho-mqtt
 ```
 
-Then change the shebang line to point to the python environment where you installed the client, set MQTT broker hostname, user, password and add both python scripts to your script commands directory.
-You should now be able to raise and lower your desk from Raycast 🎉.
+Then change the shebang line to point to the Python environment where you installed the client, set the MQTT broker hostname, user, password, and add both Python scripts to your script commands directory. You should now be able to raise and lower your desk from Raycast 🎉.
