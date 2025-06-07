@@ -8,7 +8,6 @@ blog-tags:
 blog-skip: true
 ---
 
-
 # Automatic R Peak Detection Based on Hierarchical Clustering
 
 So, about a year ago I was playing around with some Apple Watch data by writing a Python package for quickly loading relevant data from an Apple Health export. One essential part of the exported data are electrocardiograms (ECGs). 

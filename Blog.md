@@ -1,5 +1,6 @@
 ---
 blog-skip: true
+blog-archived: true
 ---
 
 # Blog
@@ -8,7 +9,7 @@ blog-skip: true
 > ```dataview
 > list
 > from ""
-> where blog-skip = true
+> where blog-skip = true and blog-archived != true
 > sort blog-published desc
 > ```
 
