@@ -1,7 +1,10 @@
+# MJ's Blog
 
-Blog posts are authored in markdown format and stored in the `⁠> Posts` directory. My custom [go-blog](https://github.com/marcjulianschwarz/go-blog) build tool transforms these source files into optimized [static web pages](https://github.com/marcjulianschwarz/marc-julian.com) for [my blog](https://marc-julian.com/blog/). 
+Blog posts are authored in markdown format and stored in the `⁠> Posts` directory. My custom [go-blog](https://github.com/marcjulianschwarz/go-blog) build tool transforms these source files into optimized [static web pages](https://github.com/marcjulianschwarz/marc-julian.com) for [my blog (MJ's Blog)](https://marc-julian.com/blog/). 
 
 ## Recent Posts
+
+The following table is automatically updated with new posts as they appear in the posts directory. It only shows posts that are not marked as skipped or archived.
 
 <!-- QueryToSerialize: TABLE WITHOUT ID ("[" + blog-title + "](" + "https://marc-julian.com/blog/posts/" + replace(file.name, ".md", "") + ")") AS "URL", blog-published as "Published" FROM "Posts" WHERE blog-skip != true and blog-archive != true SORT blog-published desc -->
 <!-- SerializedQuery: TABLE WITHOUT ID ("[" + blog-title + "](" + "https://marc-julian.com/blog/posts/" + replace(file.name, ".md", "") + ")") AS "URL", blog-published as "Published" FROM "Posts" WHERE blog-skip != true and blog-archive != true SORT blog-published desc -->
