@@ -12,7 +12,7 @@ Let's create a simple text generation model using Markov chains. You can play wi
 
 ## What is a Markov Chain?
 
-A basic Markov chain is made up of three main parts 
+A basic Markov chain consist of three main parts 
 - a state space,
 - a transition matrix
 - and an initial distribution
@@ -68,7 +68,7 @@ So, the weather forecast will look like this:
 
 ## Text Generation with Markov Chains 
 
-We can apply the same concept to words of a given text. Each unique word represents a single state. A sentence is just a sequence of states that have been sampled from a state space. 
+We can apply the same concept to words of a given text. Each unique word represents a single state. A sentence is a sequence of states that were sampled from a state space. 
 
 1. Create a state space
 2. Compute probabilities for the transition matrix
@@ -93,7 +93,7 @@ states = list(set(tokens))
 
 ### 2. Calculate Probabilites (Transition Matrix)
 
-The transition matrix contains all possibilities of a state i being followed by a state j. So we create a matrix with `len(states)` rows and `len(states)` columns:
+The transition matrix contains all possibilities of a state `i` followed by a state `j`. So we create a matrix with `len(states)` rows and `len(states)` columns:
 
 ```python
 transition_matrix = np.zeroes((len(states), len(states)))
@@ -137,14 +137,14 @@ This is how a transition matrix could look like if you color all non-zero entrie
 Now, we are ready to sample words from the transition matrix. As we saw above, we need a *current* state to begin generating more states. 
 A more sophisticated way than having a fixed first state is to provide an **initial distribution** that contains probabilities for each word to come first.
 
-The initial distribution is a vector of length `len(states)`. With it we can force certain words to be more likely to start the Markov chain. In an extreme case we might want the generated text to start with a certain word (e.g.: *"The"*). So we look for the index of *"The"* in our states and set that index to 1 in the initial distribution vector and all other indices to 0. 
+The initial distribution is a vector of length `len(states)`. With it we can force certain words to be more likely to start the Markov chain. In an extreme case we might want the generated text to start with a certain word (e.g.: *"The"*). We look for the index of *"The"* in our states and set that index to 1 in the initial distribution vector and all other indices to 0. 
 
 ```python
 initial_distribution = np.zeroes((len(states))
 initial_distribution[states.index("The")] = 1
 ```
 
-We could also use a list of possible sentence beginnings, all of which should all start a sentence with equal probability.
+We could also use a list of possible sentence beginnings, which should all start a sentence with equal probability.
 
 ```python
 initial_distribution = np.zeroes((len(states))
@@ -156,7 +156,7 @@ for sentence_beginning in sentence_beginnings:
 	initial_distribution[states.index(sentence_beginning)] = 1 / len(sentence_beginnings)
 ```
 
-To generate a text, we sample words from the list of states with a probability determined by the initial distribution and the transition matrix until we reach a maximum text length. If there is no initial distribution, we just randomly choose a starting word. 
+To generate a text, we sample words from the list of states with a probability determined by the initial distribution and the transition matrix until we reach a maximum text length. If there is no initial distribution, we randomly choose a starting word. 
 
 ```python 
 def generate_text(tokens: List[str], length: int, P_matrix: np.ndarray, P_init: np.ndarray=None) -> str:
@@ -187,7 +187,7 @@ Now have fun generating texts. Be sure to try different source texts and see how
 generate_text(states, 100, transition_matrix)
 ```
 
-You can also try out the [text generation web app](https://marcjulianschwarz-markov-chain-text-genera-generate-text-m4bkd9.streamlitapp.com/) I built and take a look at the [GitHub repo](https://github.com/marcjulianschwarz/markov-chain-text-generation) which contains all of the source code.
+You can also try out the [text generation web app](https://marcjulianschwarz-markov-chain-text-genera-generate-text-m4bkd9.streamlitapp.com/) I built and take a look at the [GitHub repo](https://github.com/marcjulianschwarz/markov-chain-text-generation) which contains the source code.
 
 
 

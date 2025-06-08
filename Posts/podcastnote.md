@@ -43,6 +43,7 @@ This command will be visible in editor mode. Make sure you have text selected wh
 
 ## Settings
 ### 1. Template
+
 Here you can specify how the metadata for your podcast notes looks like. 
 Use these three placeholders:
 
@@ -79,8 +80,9 @@ Possible placeholders for this template are:
 
 ### 3. Folder
 
-Set the folder where. The path is relative to your vault. For example **folder/podcast_folder** will become **path/to/vault/folder/podcastfolder**.
+Set the folder where the plugin will save new podcast notes to. The path is relative to your vault. For example **folder/podcast_folder** will become **path/to/vault/folder/podcastfolder**.
 
 ### 4. Insert podcast note at cursor
-Specify whether you want to create a new note or whether you want the metadata to be inserted at your cursor.
+
+Specify whether you want to create a new note or whether you want it to insert metadata at your cursor.
 

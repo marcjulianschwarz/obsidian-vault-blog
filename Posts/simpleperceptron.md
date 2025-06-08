@@ -21,7 +21,7 @@ class Perceptron:
 		self.init_weights() # TODO
 ```
 
-Here, we already set default values for hyperparameters like the learning rate (lr) and the number of epochs that the model should be trained for. Additionally, we already initialize the weight and bias values with the `init_weights` method.
+Here, we already set default values for hyperparameters like the learning rate (lr) and the number of epochs that the model should train for. We already initialize the weight and bias values with the `init_weights` method.
 
 ## Weight & Bias Initialization
 
@@ -37,6 +37,7 @@ def init_weights(self):
 ## Training Loop 
 
 Now we are ready to work on the training loop. The basic idea is that we start predicting classes with random weight values in the model. We then compare the predicted (probably misclassified) class label with the expected class label to compute the error that the model has made. 
+
 We then use the error to update the weights and bias by a small amount to get better predictions. We iterate over this process until the model converges or we reach the maximum epoch limit.
 
 ![](/images/percep8.png)
@@ -69,7 +70,7 @@ can take different values depending on the predictions.
 If the true and predicted classes are the same (0,0 or 1,1), the error will be equal to 0. In this case, everything is fine and we don't need to update the weights.
 In the two cases of misclassification (0,1 or 1,0), the error will be either  -1 or 1. Here we want to update the weights to hopefully get the prediction closer to the correct class in the next epoch. 
 
-As you can see from the formula below, we update the weight with respect to the actual data points. This way, our data has an influence on the weight updates. Large values will have a higher impact than small values. This implies that our model benefits from feature scaling. One of the methods that could be applied is **standardization** where you subtract the mean and divide by the standard deviation to center and scale your data points. 
+As you can see from the formula below, we update the weight according to the actual data points. This way, our data has an influence on the weight updates. Large values will have a higher impact than small values. This implies that our model benefits from feature scaling. One of the methods that could help is **standardization** where you subtract the mean and divide by the standard deviation to center and scale your data points. 
 
 We multiply by the learning rate to make smaller steps, which helps to get better convergence. The magnitude of the learning rate plays an essential role. Too large values will lead to rapid but unstable convergence, too low values will make the model converge slowly and it may even get stuck in local minima.
 
@@ -90,11 +91,11 @@ def fit(self, X, y):
 			self.bias += self.bias_delta
 ```
 
-Finally, we have to implement the `predict` method to be able to calculate the error. 
+Lastly, we have to implement the `predict` method to be able to calculate the error. 
 
 ## Prediction 
 
-For prediction, we simply compute a linear combination of the input data using the trained weights and bias. To get the corresponding class labels, we need to clip the values with a step function. This gives us a binary output, just like the target variable. 
+For prediction, we compute a linear combination of the input data using the trained weights and bias. To get the corresponding class labels, we need to clip the values with a step function. This gives us a binary output, like the target variable. 
 
 ```python
 def predict(self, X):
@@ -141,11 +142,11 @@ perceptron.fit(X_train, y_train)
 y_pred = perceptron.predict(X_train)
 ```
 
-Here we can see two different plots for the predictions. The left one did not use any activation function and therefore shows the full range of values that were predicted. On the right side, the step function from above was used.
+Here we can see two different plots for the predictions. For the left one, I did not use any activation function which is why it shows the full range of values that the model predicted. For the right side, I used the step function from above.
 
 ![Good Binary Classification Scatter Plot](/images/percep7.png)
 
-After training, the model seems to be able to discriminate between the two classes quite well. However, when comparing the predictions with the original data set we can clearly see that some samples were still misclassified. This is expected because the perceptron model is trying to fit a **linear** decision boundary while the two classes are actually **not linearly** separable.
+After training, the model seems to be able to discriminate between the two classes. But, when comparing the predictions with the original data set we can see that some samples were still misclassified. This is expected because the perceptron model is trying to fit a **linear** decision boundary while the two classes are actually **not linearly** separable.
 We could solve this problem by introducing more features, since in a higher dimensional space there may be a hyperplane that perfectly separates the classes. Of course, this will not always be possible which is why we need more complex models that can fit nonlinear decision boundaries. 
 
 
