@@ -8,22 +8,19 @@ blog-tags:
 blog-archived: true
 ---
 
-
-## An introduction on how to create a simple widget for iOS
-
 You will learn how to create simple web requests, build a good-looking widget and share it with others.
 
-Usually, an iOS widget loads some sort of data from an API, a file or the web and displays it on your home-screen. Within the Scriptable community, people agreed on a basic structure for the code.
+An iOS widget often loads some sort of data from an API, a file or the web and displays it on your home-screen. Within the Scriptable community, people agreed on a basic structure for the code.
 
 It consists of these two methods:
 
-+ getData()
-+ createWidget(data)
++ `getData()`
++ `createWidget(data)`
 
-In the following three steps I will show you how to implement them. 
+ 
+## 1. Getting data.
 
-### 1. Getting data.
-A simple web request can be used to load the data. In this case, a JSON file. Notice that the getData(url) method needs the async keyword in front of it because it uses await in its body.
+A simple web request downloads the necessary data. In this case, a JSON file. Notice that the `getData(url)` method needs the `async` keyword in front of it because it uses `await` in its body.
 
 ```
 const url = "https://www.github.com/marcjulianschwarz/code/sample.json";
@@ -41,14 +38,13 @@ function processData(data){
 }
 ```
 
-### 2. Processing data.
-The processData() function can be used to further process the data to your needs. 
+## 2. Processing data.
 
+The optional `processData()` function further processes the data to your needs. 
 
-### 3. Build the widget.
+## 3. Build the widget.
 
-Now it’s time to build the actual widget. Right now Scriptable has so called ListWidgets. After you created a ListWidget() object, you can add text and other media to it.
-In this example the widget will display the text stored in data.sample.
+Now it’s time to build the actual widget. Right now, Scriptable has so called `ListWidget` objects. You can add text and other media to it. In this example, the widget will display the text stored in `data.sample`.
 
 ```
 function createWidget(data){
@@ -64,7 +60,7 @@ function createWidget(data){
 }
 ```
 
-In the last step, all functions will be called like this:
+As a last step, call all functions in this order:
 
 ```
 let data = await getData(url);
@@ -76,18 +72,14 @@ Script.setWidget(widget);
 Script.complete();
 ```
 
-### 4. Share
+## 4. Share
 
-Finally, you probably want to share your widget with others.
-To easily achieve this, I would recommend uploading it to GitHub.
-Add a good README file that explains what your widget is doing and how to install it.
+You probably want to share your widget with others. To achieve this, I would recommend uploading it to GitHub. Add a good `README` file that explains what your widget is doing and how to install it.
 
-
-### 5. Questions?
+## 5. Questions?
 If you have any questions or need help, you can always contact me:
 
-+ Website: [marc-julian.de](https://www.marc-julian.de/contact.html)
++ Website: [marc-julian.com](https://www.marc-julian.coml)
 + LinkedIn [@marcjulianschwarz](https://www.linkedin.com/in/marcjulianschwarz)
 
-You can also check out the Scriptable documentation which is excellent.
-There is also a nice [Scriptable discord server]() which you can visit to share your creations or get help.
+You can also check out the Scriptable documentation which is great. Or join the [Scriptable discord server]() which let's you share your creations or get help.

@@ -8,9 +8,9 @@ blog-tags:
 blog-subtitle: Capacitated and Uncapacitated Lot-Sizing Problems
 ---
 
-Solving a Mixed Integer Programming (MIP) Problem with Gurobi requires the [Gurobi Optimizer](https://www.gurobi.com/products/gurobi-optimizer/) and the Python package [GurobiPy](https://support.gurobi.com/hc/en-us/articles/360044290292-How-do-I-install-Gurobi-for-Python-) to be installed on your system.
+Solving a Mixed Integer Programming (MIP) Problem with Gurobi requires the [Gurobi Optimizer](https://www.gurobi.com/products/gurobi-optimizer/) and the Python package [GurobiPy](https://support.gurobi.com/hc/en-us/articles/360044290292-How-do-I-install-Gurobi-for-Python-).
 
-The GurobiPy package can be installed with pip or conda:
+Install the GurobiPy package with pip or conda:
 
 ```bash
 python -m pip install gurobipy
@@ -22,7 +22,7 @@ conda install -c gurobi gurobi
 
 ## Importing package 
 
-When installed, gurobipy can be imported like this:
+Import `gurobipy` like this:
 
 ```python
 import gurobipy as gp
@@ -31,7 +31,7 @@ from gurobipy import GRB
 
 ## Initialize Model 
 
-The next step is to initialize a Gurobi model. For this example problem, setting a constant with the name capacitated to `False` will be necessary too. This variable can be changed depending on whether you want to have production capacity constraints (LS-C) or not (LS-U).
+The next step is to initialize a Gurobi model. For this example problem, setting a constant with the name capacitated to `False` will be necessary too. This variable defines whether you want to have production capacity constraints (LS-C) or not (LS-U).
 
 ```python
 m = gp.Model("ls")
@@ -43,13 +43,13 @@ capacitated = False
 
 The situation for the example problem is the following:
 
-A production facility wants to make a plan for the next 8 months. They want to know exactly how many products have to be produced each month to fulfill the demand in that month and reduce the overall costs which consist of
+A production facility wants to make a plan for the next 8 months. They want to know the amount of products that the factory has to produce each month to fulfill the demand in that month and reduce the costs which consist of
 
 - Production costs for one product: 100€ 
-- Preparing the machines at the beginning of a month (only if the machines are being used in that month):  5000€
+- Preparing the machines at the beginning of a month (if the machines are running in that month):  5000€
 - Storing one product for a month:  5€
 
-These are all constants that won't change during the optimization of the model. That's why they don't have to be added to the model.
+These are all constants that won't change during the optimization of the model. That's why you don't have to add them to the model.
 
 ```python
 # Time (e.g. months)
@@ -62,7 +62,7 @@ p = [100 for i in t]
 # Costs for storing a product for each month
 h = [5 for i in t]  
 
-# Costs for armoring the machines for each month (has to be done at most once for each month)
+# Costs for armoring the machines for each month (at most once for each month)
 q = [5000 for i in t]
 
 # Demand for products for each month
@@ -71,16 +71,16 @@ d = [400, 400, 800, 800, 1200, 1200, 1200, 1200]
 
 ## Add Variables
 
-To describe the objective function and constraints of the model, variables with specified types have to be added to the model.
+To describe the objective function and constraints of the model, add variables with specified types to the model.
 
-The number of products being produced each month (`x`) will have to be an integer variable as the facility can't produce fractions of a product. The same constraint holds for the storage of products (`s`) where only finished products can be stored.
+The number of products produced each month (`x`) will have to be an integer variable as the facility can't produce fractions of a product. The same constraint holds for the storage of finished products (`s`).
 The storage amount will have one extra entry in comparison to the other variables as there will be an initial stock from the month before.
 
-The variable `y` is binary as it controls whether the machines have to be prepared (1) or not (0).
+The variable `y` is binary as it controls whether the facility has to prepare the machines (1) or not (0).
 
-The only difference between the Uncapacitated and Capacitated Lot-Sizing problem lies in the definition of the capacity constraining variable `M`. 
-For the uncapacitated case, the variable will be unbounded and will therefore always be big enough to produce any amount of products. In the capacitated case it will consist of a list of capacities.
-In the code example below, the capacities are selected in a way to minimize the preparation costs of the machines.
+The one difference between the Uncapacitated and Capacitated Lot-Sizing problem lies in the definition of the capacity constraining variable `M`. 
+For the uncapacitated case, the variable has no bound and will always be big enough to produce any amount of products. In the capacitated case it will consist of a list of capacities.
+In the code example below, the model selects capacities in a way to minimize the preparation costs of the machines.
 
 ```python
 # Production Amount for each month
@@ -101,8 +101,8 @@ else:
 
 ## Objective Function
 
-As described above, the facility wants to minimize the overall costs. They consist of the sum of costs for producing products, preparing machines, and storing products.
-Thus the objective function has to look like this:
+As described above, the facility wants to minimize the costs. They consist of the sum of costs for producing products, preparing machines, and storing products.
+Thus, the objective function has to look like this:
 
 ```python
 m.setObjective(gp.quicksum(p[i] * x[i] + q[i] * y[i] + h[i] * s[i+1] for i in t), GRB.MINIMIZE)
@@ -110,15 +110,15 @@ m.setObjective(gp.quicksum(p[i] * x[i] + q[i] * y[i] + h[i] * s[i+1] for i in t)
 
 ## (Linear) Constraints
 
-Last but not least all constraints of the model have to be defined.
+Now, define all constraints of the model.
 
-The first two constraints make sure that the demand will be fulfilled and that the excess will be stored for the next month.
+The first two constraints ensure that the facility fulfills their demand and stores the excess for the next month.
 
 Constraints three and four will control the initial and final stock.
 
-Constraint five adds capacity constraints to the model. As stated before, `M` will either be unbounded or have specific capacity restrictions.
+Constraint five adds capacity constraints to the model. As stated before, `M` will either not have a bound or have specific capacity restrictions.
 
-The last three positivity constraints make sure that no negative amounts of products can be produced or stored.
+The last three positivity constraints make sure that the ma no negative amounts of products can be produced or stored.
 
 ```python
 # Stored products from the previous month plus the number of products produced in the current

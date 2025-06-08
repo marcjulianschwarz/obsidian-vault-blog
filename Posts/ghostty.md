@@ -6,8 +6,7 @@ blog-tags:
 blog-published: 2025-01-13
 ---
 
-Recently, I stumbled upon [Ghostty](https://ghostty.org/) a nice looking open source terminal emulator. It feels very fast, comparable to native terminals. I have been using it for the past few weeks in my macOS setup and found it to come quite close to the macOS `Terminal.app` experience.
-
+I stumbled upon [Ghostty](https://ghostty.org/) a nice looking open source terminal emulator. It feels fast, even comparable to native terminals. I have been using it for the past weeks in my macOS setup and found it to come close to the macOS `Terminal.app` experience.
 
 What I enjoy most about Ghostty is its easy configuration. You can open and edit the config file with the keyboard shortcut `cmd + ,` and reload it with `shift + cmd + ,`. These are the settings I am using right now:
 
@@ -46,5 +45,5 @@ working-directory = home
 window-inherit-working-directory = true
 ```
 
-> Btw, there is also this beautifully made open source [Ghostty Config Generator](https://ghostty.zerebos.com/).
+> Btw, there is also this beautiful looking open source [Ghostty Config Generator](https://ghostty.zerebos.com/).
 
