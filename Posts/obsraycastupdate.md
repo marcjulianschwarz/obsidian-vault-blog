@@ -8,11 +8,11 @@ blog-tags:
 blog-subtitle: Notes, notes, notes ...
 ---
 
-My Raycast extension "Obsidian" has been in the [Raycast Store](https://www.raycast.com/marcjulian/obsidian) for a few months now and lots of people are already using it. In this post I would like to introduce some of the new features that were added recently.
+My Raycast extension "Obsidian" has been in the [Raycast Store](https://www.raycast.com/marcjulian/obsidian) for some months now and lots of people are already using it. In this post I would like to introduce some of the new features that I added.
 
 ## Create Note 
 
-With the new command *Create Note* you can now create new notes on the fly. Just like all of the other commands it can be accessed system-wide which makes it a great tool for quickly jotting down some notes while working in another application.
+With the new command *Create Note* you can now create new notes on the fly. Like the other commands you can access it system-wide which makes it a great tool for jotting down some notes while working in another application.
 
 ![Create Note Command](/images/create_note.jpg)
 

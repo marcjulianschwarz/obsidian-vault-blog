@@ -7,7 +7,7 @@ blog-tags:
   - Raycast
 ---
 
-As of 15th May 2023, I will no longer be an active developer for the [Obsidian Raycast extension](https://www.raycast.com/KevinBatdorf/obsidian) due to the fact that I want to invest even more time into Data Science related topics. 
+As of 15th May 2023, I will no longer be an active developer for the [Obsidian Raycast extension](https://www.raycast.com/KevinBatdorf/obsidian) because I want to invest even more time for data science related topics. 
 
-I want to thank all of the **20,000** users and especially [Kevin Batdorf](https://github.com/KevinBatdorf/) for his effort in taking over the extension and further maintaining it to keep it alive for the community.
+I want to thank all **20,000** users and [Kevin Batdorf](https://github.com/KevinBatdorf/) for his effort in taking over the extension and further maintaining it to keep it alive for the community.
 

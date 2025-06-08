@@ -27,6 +27,7 @@ The event featured a broad lineup of speakers, covering a wide range of topics -
 He used [YOLOv7](https://github.com/WongKinYiu/yolov7) and two cameras that record from different perspectives to track a skeleton of his body.
 
 When using this technique, there are some key points to consider: 
+
 -  Use **at least** two cameras with the same configuration 
 	- For best results, position them above the playing field to reduce player occlusions 
 	- For better results, use more than two cameras 
@@ -41,6 +42,7 @@ Take a look at his [GitHub repository](https://github.com/SkalskiP/sport) to see
 One interesting idea was to train a model that outputs embeddings for images, which represent their information well enough. You could then create a *"good"* embedding for normal parts (without anomalies) to compare against. If an embedded image has a dissimilarity above a certain threshold when compared with the good embedding, one can mark it as an anomaly.
 
 Their final **multi-model** approach, consisted of three steps: 
+
 1. Create a segmented anomaly map: 
 	1. Segment the image to get a segmentation map 
 	2. Use an anomaly detector to get an anomaly map 
@@ -62,21 +64,20 @@ In their AI Game, characters use a large language model to generate their though
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/G7ZAPwji4i0?start=92" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Every character has a long-term memory in the form of a vector database. The app preprocesses ew thoughts and interactions are preprocessed and then saved into the database. 
-When needed, the database will be queried with respect to 
+Every character has a long-term memory in the form of a vector database. The app preprocesses new thoughts and interactions and saves them into the database. When needed, it queries the database based on
+
 - recency 
 - importance 
 - and relevance.
 
-The short-term memory is controlled with the current context of the language model.
+The current context of the language model forms the short-term memory. This combination of short and long-term memory let's agents learn continually by using it to plan actions based on past observations, experience, its current environment and thoughts. 
 
-This combination of short and long-term memory lets agents learn continually by using it to plan actions based on past observations, experience, its current environment and thoughts. 
-
-Personally, I think that LLMs will completely redefine the role of NPCs (Non-Player Characters) in video games. Today, the player-controlled character is often the central figure in the game's story while other characters are less important.
-In the near future, the player will take on a more supporting role and the game does not have a clearly defined protagonist. The story will be open-ended and allows the players **and** NPCs to make choices that affect the outcome and direction of it. 
-More games will adopt a sandbox-style approach, similar to Minecraft, where there is no apparent goal or ending of the game. 
+Personally, I think that LLMs will redefine the role of NPCs (Non-Player Characters) in video games. Today, the player-controlled character is often the central figure in the game's story while other characters are less important.
+In the future, the player will take on a more supporting role and the game does not have a defined protagonist. The story will be open-ended and allows the players **and** NPCs to make choices that affect the outcome and direction of it. 
+More games will adopt a sandbox-style approach, like Minecraft, where there is no clear goal or ending of the game. 
 
 Other interesting projects that try to use LLMs to create autonomous agents are 
+
 - [AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT)
 - [Voyager Minecraft Agent](https://github.com/MineDojo/Voyager)
 
