@@ -15,7 +15,7 @@ Last week, I joined machine learning enthusiasts from around the world in Prague
 
 ![ML Prague Conference 2023 sign at the entrance](/images/mlprague_sign.jpg)
 
-The event featured a broad lineup of speakers, covering a wide range of topics - from the latest breakthroughs in natural language processing to cutting-edge computer vision applications. In this blog post, I want to write about some of the most interesting talks from the conference and highlight the key takeaways. So, without further ado, let's dive in and start with two topics from the area of image processing.
+The event featured a broad lineup of speakers, covering a wide range of topics - from the latest breakthroughs in natural language processing to cutting-edge computer vision applications. In this blog post, I want to write about some of the most interesting talks from the conference and highlight the key takeaways. Without further ado, let's dive in and start with two topics from the area of image processing.
 
 ## Image Processing 
 ### 3D Pose Estimation in Sport 
@@ -40,7 +40,7 @@ Take a look at his [GitHub repository](https://github.com/SkalskiP/sport) to see
 
 One interesting idea was to train a model that outputs embeddings for images, which represent their information well enough. You could then create a *"good"* embedding for normal parts (without anomalies) to compare against. If an embedded image has a dissimilarity above a certain threshold when compared with the good embedding, one can mark it as an anomaly.
 
-Their final **multi-model** approach, however, consisted of three steps: 
+Their final **multi-model** approach, consisted of three steps: 
 1. Create a segmented anomaly map: 
 	1. Segment the image to get a segmentation map 
 	2. Use an anomaly detector to get an anomaly map 
@@ -50,7 +50,7 @@ Their final **multi-model** approach, however, consisted of three steps:
 
 ![Image at Conference of multi-model approach](/images/mlprague_valeo.jpg)
 
-This turned out to work quite well and is currently in use.
+This turned out to work well and is in use right now.
 
 ## Large Language Models 
 
@@ -62,7 +62,7 @@ In their AI Game, characters use a large language model to generate their though
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/G7ZAPwji4i0?start=92" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Every character has a long-term memory which has been implemented via a vector database. New thoughts and interactions are preprocessed and then saved into the database. 
+Every character has a long-term memory in the form of a vector database. The app preprocesses ew thoughts and interactions are preprocessed and then saved into the database. 
 When needed, the database will be queried with respect to 
 - recency 
 - importance 

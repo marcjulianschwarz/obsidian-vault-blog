@@ -8,13 +8,13 @@ blog-tags:
 blog-published: 2025-05-31
 ---
 
-Ollama can serve many Hugging Face models locally. Concretely, you can run any [GGUF](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md) model from the Hugging Face Hub. Use [this GGUF filter](https://huggingface.co/models?library=gguf) on the Hugging Face website to get a list of models that are supported (currently about 121,000 models). From the model card, you can click "*Use this model*" to copy the ollama run command. For example:
+Ollama can serve many Hugging Face models locally. Concretely, you can run any [GGUF](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md) model from the Hugging Face Hub. Use [this GGUF filter](https://huggingface.co/models?library=gguf) on the Hugging Face website to get a list of models that Ollama support  (about 121,000 models at the time of writing). From the model card, you can click "*Use this model*" to copy the ollama run command. For example:
 
 ```
 ollama run hf.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF:Q4_K_M
 ```
 
-The commands are usually structured like this:
+The commands have following structure:
 
 ```
 ollama run hf.co/{username}/{repository}:{quantization-scheme}

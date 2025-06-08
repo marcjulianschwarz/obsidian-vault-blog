@@ -118,7 +118,7 @@ Constraints three and four will control the initial and final stock.
 
 Constraint five adds capacity constraints to the model. As stated before, `M` will either not have a bound or have specific capacity restrictions.
 
-The last three positivity constraints make sure that the ma no negative amounts of products can be produced or stored.
+The last three positivity constraints make sure that the machines don't produce negative amounts of products and that the storage does not contain a negative amount of stored products.
 
 ```python
 # Stored products from the previous month plus the number of products produced in the current
@@ -158,7 +158,7 @@ m.optimize()
 
 does everything we need to solve this optimization problem.
 
-Gurobi will use the Branch-and-Bound algorithm as the model only consists of linear constraints and a linear objective function, with (mixed) integer variables (IP).
+Gurobi will use the Branch-and-Bound algorithm as the model consists solely of linear constraints and a linear objective function, with (mixed) integer variables (IP).
 
 ## Evaluation 
 
@@ -210,9 +210,9 @@ Optimal solution found (tolerance 1.00e-04)
 Best objective 7.360000000000e+05, best bound 7.360000000000e+05, gap 0.0000%
 ```
 
-As one can see the optimal solution is equal to 736,000€ of overall costs.
+As one can see the optimal solution is equal to 736,000€ of costs.
 
-Printing out the variables reveals how many products have to be produced in each month to achieve these minimal costs.
+Printing out the variables reveals the number of products that the facility has to produce in each month to achieve these minimal costs.
 
 ```python
 for v in m.getVars():
