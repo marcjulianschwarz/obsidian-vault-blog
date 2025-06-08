@@ -8,15 +8,15 @@ blog-tags:
   - Misc
 ---
 
-> **Edit** (17.12.2024): After more than a year of using Oh My Zsh and many custom aliases, my most used and favourite aliases are `go <marker-name>` (for going to a marked directory) and `b` (short for back + performing `cd ..`).  Oh My Zsh is awesome!
+> **Edit** (17.12.2024): After more than a year of using Oh My Zsh and custom aliases, my most used and favourite aliases are `go <marker-name>` (for going to a marked directory) and `b` (short for back + performing `cd ..`).  Oh My Zsh is awesome!
 
 > **Edit** (20.07.2023): The open source framework [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)  makes it even easier to manage complex zsh configurations and there are tons of plugins that add useful aliases. 
 
 
 Today I learned ([TIL](https://www.marc-julian.de/tags/TIL.html)) that you can define aliases and functions inside of most command line applications like bash or zsh shells. 
-For zsh, the config file `.zshrc` is located directly in the user folder. You can edit it in any text editer (on some systems, you might need to open it as an admin or run your preferred command with `sudo`).
+For zsh, you can find the `.zshrc` config file directly in the user folder. You can edit it in any text editor (on some systems, you might need to open it as an admin or run your preferred command with `sudo`).
 
-When you are done, run the following command to execute the file and reload all defined aliases and functions.
+Run the following command to execute the file and reload all defined aliases and functions.
 
 ```shell
 source .zshrc
@@ -89,7 +89,7 @@ function defaultenv(){
 
 ## Mark paths to directly jump to them from anywhere 
 
-Inspired by the `mark` and `cdd` function in this [blog post](https://chris-said.io/2014/10/16/jumping-quickly-between-deep-directories/) by Chris Said, I added two more additional functions `opend` and `coded` to quickly open a folder in Finder or VSCode.
+Inspired by the `mark` and `cdd` function in this [blog post](https://chris-said.io/2014/10/16/jumping-quickly-between-deep-directories/) by Chris Said, I added two more functions `opend` and `coded` to  open a folder in Finder or VSCode.
 
 ```shell
 # Run to get bash autocomplete functions in zsh shell 

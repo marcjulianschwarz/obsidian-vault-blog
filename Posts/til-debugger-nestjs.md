@@ -6,7 +6,7 @@ blog-tags:
   - TIL
 blog-published: 2025-04-12
 ---
-Today I learned that it is REALLY easy to attach a debugger to a NestJS app in VS Code. Run the following commands in the command palette:
+Today I learned that it's easier than I thought to attach a debugger to a NestJS app in VS Code. Run the following commands in the command palette:
 
 - Debug: Toggle Auto Attach
 - (Debug: Attach to Node Process)
