@@ -3,7 +3,12 @@ blog-skip: true
 blog-archived: true
 ---
 
+
 > [!TIP] Ideas
+> - wwdc-2025-bingo
+> - 
+
+> [!NOTE] Working
 > ```dataview
 > list
 > from ""
