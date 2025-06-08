@@ -21,7 +21,7 @@ At the end of this guide you will be able to create radar plot animations like t
 
 ## Import modules
 
-The only modules needed are numpy and matplotlib. Import them like this:
+The modules needed are numpy and matplotlib. Import them like this:
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,9 +44,9 @@ data = [
 ]
 ```
 
-`data` is a list of the different features that you want to plot. Every feature list contains the individual datapoints that will be plotted at frame `i`. This means all lists have to be the same length.
+`data` is a list of the different features that you want to plot. Every feature list contains the individual datapoints that the animation plots at frame ⁠`i`. This means all lists have to be the same length.
 
-Now, the first feature list will need to be copied to the end of the data list. This will ensure that the radar plot will be a closed polygon. The first and last datapoint will overlap and therefore close the shape.
+Now, you copy the first feature list to the end of the data list. This will ensure that the radar plot will be a closed polygon. The first and last datapoint will overlap and close the shape.
 
 ```python
 data = [*data, data[0]]
@@ -82,7 +82,7 @@ label_loc = np.linspace(0, 2*np.pi, num=len(labels))
 
 ## Initialize plot 
 
-For every animation in matplotlib an initial plot (using the first datapoints) is needed. To create a radar plot it is important to set the projection method to `polar`.
+Matplotlib animations require an initial plot using the first datapoints. To create a radar plot, set the projection method to `polar`.
 
 ```python
 fig, ax = plt.subplots(figsize=(10, 10), subplot_kw={'projection': 'polar'})
@@ -90,20 +90,20 @@ fig, ax = plt.subplots(figsize=(10, 10), subplot_kw={'projection': 'polar'})
 
 In a radar plot the x-values will correspond to the positions on the circle (0-360 degrees) and the y-values are the distances from the middle point of the circle.
 
-Therefore the x-values will be the label positions and the y-values will be the datapoints. For the initial plot the first datapoints will be selected using a list comprehension.
+The x-values will be the label positions and the y-values will be the datapoints. A list comprehension will select the first datapoints for the initial plot.
 
 ```python
 radar_ln = ax.plot(label_loc, [d[0] for d in data], label="Legend")
 ```
 
-The labels themselves will be placed at the previously calculated positions around the circle by converting the radians to degrees and setting the labels in the `set_thetagrids` method. 
+The code places the labels at the calculated positions around the circle by converting radians to degrees and setting them in the `⁠set_thetagrids` method.
 
 ```python
 ax.set_thetagrids(np.degrees(label_loc), labels=labels)
 ax.legend(loc="lower left", bbox_to_anchor=(0.95, 0.95))
 ```
 
-The limits in a radar plot can be changed too:
+You can change the limits in a radar plot too:
 
 ```python
 ax.set_rmax(2)
@@ -112,7 +112,7 @@ ax.set_rmin(-2)
 
 ## Update function
 
-Animating a plot with matplotlib will always include an `update(i)` function which will update the plot with new data for every frame `i`. In this case the new data will again be selected with a list comprehension (the same way the plot was initialized).
+Animating a plot with matplotlib will always include an `update(i)` function which will update the plot with new data for every frame `i`. In this case, a list comprehension selects the new data (the same way you initialized the plot).
 
 ```python
 def update(i, radar_ln, label_loc, data):
@@ -123,7 +123,7 @@ def update(i, radar_ln, label_loc, data):
 
 ## Rendering and saving the animation 
 
-Finally, it is only a matter of assigning the correct variables to `FuncAnimation` before running the `save()` method.
+The last step is assigning the correct variables to `FuncAnimation` before running the `save()` method.
 
 ```python
 ani = FuncAnimation(fig, update, frames=len(data[0]), fargs=(radar_ln, label_loc, data), interval=40)

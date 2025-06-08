@@ -7,7 +7,7 @@ blog-archived: true
 > [!TIP] Ideas
 > - wwdc-2025-bingo
 > - dataview-serializer-plugin
-> - 
+> - write-good-plugin
 
 > [!NOTE] Working
 > ```dataview
