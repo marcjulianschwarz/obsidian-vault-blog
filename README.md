@@ -11,6 +11,7 @@ The following table is automatically updated with new posts as they appear in th
 
 | URL                                                                                                                                | Published          |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [Obsidian Dataview Serializer](https://marc-julian.com/blog/posts/obsidian-dataview-serializer)                                    | June 21, 2025      |
 | [Copy Permalink to Line in Zed](https://marc-julian.com/blog/posts/copy-permalink-to-line-in-zed)                                  | May 31, 2025       |
 | [Serve Hugging Face Models in Ollama](https://marc-julian.com/blog/posts/huggingface-models-in-ollama)                             | May 31, 2025       |
 | [OpenTelemetry gRPC Exporter](https://marc-julian.com/blog/posts/grpcphoenix)                                                      | April 12, 2025     |
