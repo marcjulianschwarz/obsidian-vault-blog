@@ -4,8 +4,6 @@ blog-published: 2022-01-14
 blog-tags:
   - EN
   - Python
-  - Data
-  - Science
   - Health
 blog-archived: true
 blog-skip: true

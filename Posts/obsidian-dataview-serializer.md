@@ -5,7 +5,7 @@ blog-tags:
   - Obsidian
   - Markdown
 blog-author: Marc Julian Schwarz
-blog-published: 2025-06-13
+blog-published: 2025-06-21
 ---
 
 The popular [Obsidian Dataview plugin](https://github.com/blacksmithgu/obsidian-dataview) let's you query markdown notes with SQL-like syntax. It uses the YAML frontmatter (also known as Obsidian properties) as attributes. This enables powerful workflows. For example, [all of my blog posts](https://github.com/marcjulianschwarz/obsidian-vault-blog) contain these YAML properties:
@@ -34,8 +34,12 @@ WHERE blog-skip != true and blog-archive != true
 SORT blog-published desc
 ```
 
-Now these tables created with dataview are great inside of the Obsidian editor, but they won't render in other markdown editors/viewers (e.g. GitHub READMEs). [The Obsidian Dataview Serializer](https://github.com/dsebastien/obsidian-dataview-serializer) solves this specific problem by live-updating a *"serialized"* markdown version of the table. Every time the underlying data or the query changes, the plugin will update the markdown table accordingly. Check out [this README of my blog post repository](https://github.com/marcjulianschwarz/obsidian-vault-blog) on GitHub to see it in action. It uses the second more complex query to provide links to all posts right in the README. There you should even be able to see the exact post you are reading right now.
+The tables created with dataview are great inside of the Obsidian editor, but they won't render in other markdown editors/viewers (e.g. GitHub READMEs). [The Obsidian Dataview Serializer](https://github.com/dsebastien/obsidian-dataview-serializer) solves this specific problem by live-updating a *"serialized"* markdown version of the table. Every time the underlying data or the query changes, the plugin will update the markdown table accordingly. 
 
-What I like about this approach is that it works in all places that can render markdown tables. For example, I am also using the plugin to render a table of differn
+
+Check out [this README of my blog post repository](https://github.com/marcjulianschwarz/obsidian-vault-blog) on GitHub to see it in action. It uses the second more complex query to provide links to all posts right in the README. There you should even be able to see the exact post you are reading right now.
+
+
+What I like about this approach is that it works in all places that can render markdown tables. For example, I am also using the plugin to render a table of different types of coffee bean varieties on my German coffee and espresso wiki [the-brew-code.de](https://the-brew-code.de/Kaffee/Kaffee-%C3%9Cbersicht).
 
 
