@@ -32,3 +32,5 @@ blog-archived: true
 > sort blog-published desc
 > ```
 
+
+- [[gator-introduction]]
