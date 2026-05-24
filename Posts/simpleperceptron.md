@@ -5,7 +5,7 @@ blog-tags:
   - EN
   - ML
   - Python
-  - DS
+  - Data Science
 ---
 
 We'll be implementing a simple perceptron model for binary classification tasks using Python, and discussing the fundamentals of the perceptron model, including how it makes predictions and updates its weights during training.

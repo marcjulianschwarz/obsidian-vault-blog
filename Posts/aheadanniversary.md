@@ -2,8 +2,6 @@
 blog-title: 1-year Anniversary at AHEAD Automotive
 blog-tags:
   - EN
-  - AHEAD
-  - Qira
 blog-published: 2025-04-06
 ---
 
