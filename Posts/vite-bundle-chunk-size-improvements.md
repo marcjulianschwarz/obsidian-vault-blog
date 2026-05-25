@@ -40,3 +40,32 @@ Depending on the selected `template`, different visualization types will open:
 ## Treemap
 
 ![Rollup Visualizer Treemap](/images/rollup-visualizer-treemap.png)
+
+## Flamegraph
+
+I found this to be the most useful and easy to understand version. It clearly shows the different layers and big chunks are quick to find.
+
+![[CleanShot 2026-05-25 at 09.28.58@2x.png]]
+
+## Sunburst
+
+![[CleanShot 2026-05-25 at 09.30.43@2x.png]]
+
+## Treemap 3D
+
+This one is crazy, looks a bit like a microcontroller.
+
+![[CleanShot 2026-05-25 at 09.32.55@2x.png]]
+
+
+## What to do about big chunks?
+
+This kind of depends on the type of chunk and how prominently it is used in your app. The React dependency for example is hard to chunk if your app is a React app.
+But if your dependency is only used on certain pages (for example a PDF viewer) you might want to only load it when it is actually viewed by the user.
+
+You can do this by lazy importing dependencies or more complex pages. In this example, the `<Page>` component could include a PDF viewer that you only want to load when the component mounts/loads.
+
+```ts
+const Page = lazy(() => import("./pages/page"));
+```
+
