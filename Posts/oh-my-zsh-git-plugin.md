@@ -5,9 +5,7 @@ blog-tags:
   - EN
   - Git
 ---
-The best tool for speeding up git workflows (imo) is the [oh-my-zsh git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) with this amazing list of aliases for all sort of git commands:
-
-https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index
+The best tool for speeding up git workflows (imo) is the [oh-my-zsh git plugin](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git).
 
 Doing something like the following feels like magic:
 
