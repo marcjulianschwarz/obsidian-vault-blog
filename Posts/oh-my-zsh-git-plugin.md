@@ -1,5 +1,5 @@
 ---
-blog-title: Speeding through Git
+blog-title: Speeding Through Git
 blog-published: 2025-09-03
 blog-tags:
   - EN
