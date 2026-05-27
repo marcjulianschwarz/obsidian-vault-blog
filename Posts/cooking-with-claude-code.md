@@ -7,7 +7,7 @@ blog-tags:
 ---
 I was inspired by [this post on Simon Willison's Blog](https://simonwillison.net/2025/Dec/23/cooking-with-claude/#atom-everything) to try out cooking with Claude Code / Claude. There are multiple ways to do this. For example:
 - generating recipes based on a list of available ingredients
-- simply ask for a specific recipe
+- simply asking for a specific recipe
 - planning an entire dinner (including cooking, managing time, shopping groceries, structuring the work)
 
 ## Recipe Generation
