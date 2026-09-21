@@ -1,6 +1,5 @@
 ---
 blog-title: Fog over Speicherstadt
-blog-subtitle: Two frames from a grey weekend in Hamburg
 blog-published: 2025-12-21
 blog-tags:
   - EN

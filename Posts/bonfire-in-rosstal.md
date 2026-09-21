@@ -1,6 +1,5 @@
 ---
 blog-title: Bonfire in Roßtal
-blog-subtitle: A pallet stack, a crowd, and a fire brigade on standby
 blog-published: 2025-08-18
 blog-tags:
   - EN
@@ -29,7 +28,6 @@ photos:
       lens: 50mm f/1.8
       film: Kodak Gold 200
 ---
-
 Someone stacks pallets into a tower for weeks, then the whole village turns up to watch it burn.
 
 ![The pallet stack burning, crowd in the foreground](/photos/kids-and-fire.png)

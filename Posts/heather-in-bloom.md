@@ -1,6 +1,5 @@
 ---
 blog-title: Heather in Bloom
-blog-subtitle: Late summer light over the Lüneburger Heide
 blog-published: 2025-08-20
 blog-tags:
   - EN
