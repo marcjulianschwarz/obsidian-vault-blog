@@ -27,6 +27,4 @@ Heavy fog sat over Hamburg all weekend. I noticed this golden lettering which re
 
 ![Brick warehouse with golden lettering](/photos/sand-thor-quai-hof.png)
 
-A few streets further down in the Speicherstadt 
-
 ![Bridge arch in front of a brick facade](/photos/hafen-city-bridge.png)
