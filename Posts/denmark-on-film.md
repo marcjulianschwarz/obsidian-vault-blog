@@ -7,7 +7,6 @@ blog-tags:
 photos:
   - file: denmark-grassy-dunes.png
     title: Grassy Dunes
-    description: Taken on a small danish island.
     location:
       country: Denmark
     camera:
@@ -21,7 +20,6 @@ photos:
         iso: 200
   - file: denmark-boat.jpg
     title: Boat in Sonderborg
-    description: The harbour was completely still that morning.
     location:
       city: Sonderborg
       country: Denmark
@@ -56,7 +54,6 @@ photos:
       film: Kodak Gold 200
 ---
 
-## The first morning
 
 ![Grassy dunes](/photos/denmark-grassy-dunes.png)
 
